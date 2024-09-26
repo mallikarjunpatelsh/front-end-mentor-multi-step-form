@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Multi-step form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+
+  </style>
+
+  <script src="javascript.js"></script>
+
+</head>
+
+<body onload="loadPage()">
+
+  <!-- Sidebar start -->
+
+  <article>
+
+    <nav>
+
+      <div class="step">
+        <div class="step-number" id="step-number-1">1</div>
+        <div class="steps-description">
+          <p class="step-title">STEP 1</p>
+          <p class="step-subtitle">Your info</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number" id="step-number-2">2</div>
+        <div class="steps-description">
+          <p class="step-title">STEP 2</p>
+          <p class="step-subtitle">Select plan</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number" id="step-number-3">3</div>
+        <div class="steps-description">
+          <p class="step-title">STEP 3</p>
+          <p class="step-subtitle">Add-ons</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number" id="step-number-4">4</div>
+        <div class="steps-description">
+          <p class="step-title">STEP 4</p>
+          <p class="step-subtitle">Summary</p>
+        </div>
+      </div>
+
+    </nav>
+
+    <!-- Sidebar end -->
+
+    <!-- Step 1 start -->
+
+    <div class="container">
+
+      <div id="step-1">
+        <h1>Personal info</h1>
+        <p class="container-subtitle">Please provide your name, email address, and phone number.</p>
+
+        <div class="input-fields first-input-field">
+          <p>Name</p>
+          <input id="input_name" class="input-box" type="text" placeholder="e.g. Stephen King"
+            oninput="onNameEntered()" />
+        </div>
+
+        <div class="input-fields">
+          <p>Email Address</p>
+          <input id="input_email" class="input-box" type="email" placeholder="e.g. stephenking@lorem.com"
+            oninput="validateEmail()" />
+          <p class="error_message" id="input_email_error">Enter correct email</p>
+        </div>
+        <div class="input-fields">
+          <p>Phone Number</p>
+          <input id="input_phone" class="input-box" type="number" placeholder="e.g. 9876543210" maxlength="10"
+            oninput="validatePhoneNumber()" />
+          <p class="error_message" id="input_phone_error">Enter correct email</p>
+        </div>
+
+      </div>
+
+      <!-- Step 1 end -->
+
+      <!-- Step 2 start -->
+
+      <div id="step-2">
+        <h1>Select your plan</h1>
+        <p class="container-subtitle">You have the option of monthly or yearly billing.</p>
+
+        <div class="plan-section">
+          <div class="plan plan-arcade" id="plan-1" onclick="selectArcadePlan()">
+            <img src="/assets/images/icon-arcade.svg" alt="arcade">
+            <div>
+              <p class="plan-name">Arcade</p>
+              <p class="plan-price">$9/mo</p>
+            </div>
+          </div>
+
+          <div class="plan plan-arcade" id="plan-2" onclick="selectAdvancedPlan()">
+            <img src="/assets/images/icon-advanced.svg" alt="arcade">
+            <div>
+              <p class="plan-name">Advanced</p>
+              <p class="plan-price">$12/mo</p>
+            </div>
+          </div>
+
+
+          <div class="plan plan-arcade" id="plan-3" onclick="selectProPlan()">
+            <img src="/assets/images/icon-pro.svg" alt="arcade">
+            <div>
+              <p class="plan-name">pro</p>
+              <p class="plan-price">$15/mo</p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="plan-duration">
+          <p>Monthly</p>
+          <label class="switch">
+            <input type="checkbox" id="switch-input">
+            <span class="slider round"></span>
+          </label>
+          <p>Yearly</p>
+        </div> -->
+      </div>
+
+      <!-- Step 2 end -->
+
+      <!-- Step 3 start -->
+
+      <div id="step-3">
+        <h1>Pick add-ons</h1>
+        <p class="container-subtitle">Add-ons help enhance your gaming experience.</p>
+
+        <div class="add-on-parent">
+          <div class="add-on" onclick="selectOnlineServiceAddOn()">
+            <div class="add-on-description">
+              <div class="checkbox-div">
+                <input type="checkbox" class="checkbox">
+              </div>
+              <div>
+                <p>Online service</p>
+                <p class="container-subtitle">Access to multiplayer games</p>
+              </div>
+            </div>
+            <p class="add-on-price">+$1/mo</p>
+          </div>
+
+          <div class="add-on" onclick="selectLargerStorageAddOn()">
+            <div class="add-on-description">
+              <div class="checkbox-div">
+                <input type="checkbox" class="checkbox">
+              </div>
+              <div>
+                <p>Larger storage</p>
+                <p class="container-subtitle">Extra 1TB od cloud save</p>
+              </div>
+            </div>
+            <p class="add-on-price">+$1/mo</p>
+          </div>
+
+          <div class="add-on" onclick="selectCustomizableProfileAddOn()">
+            <div class="add-on-description">
+              <div class="checkbox-div">
+                <input type="checkbox" class="checkbox">
+              </div>
+              <div>
+                <p>Customizable Profile</p>
+                <p class="container-subtitle">Custom theme on your profile</p>
+              </div>
+            </div>
+            <p class="add-on-price">+$1/mo</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="step-4">
+        <h1>Finishing up</h1>
+        <p class="container-subtitle">Double-check everything looks OK before confirming.</p>
+
+        <div class="price-summary">
+          <!-- <div class="billing plan-final-price">
+            <div>
+              <p class="final-plan-name">Arcade (Monthly)</p>
+              <p class="final-plan-change">Change</p>
+            </div>
+            <p class="final-plan-price">$9/mo</p>
+          </div>
+
+          <div class="billing">
+            <p class="service-charge">Online service</p>
+            <p class="service-charge-price">+$1/mo</p>
+          </div>
+
+          <div class="billing">
+            <p class="service-charge">Larger storage</p>
+            <p class="service-charge-price">+$2/mo</p>
+          </div> -->
+
+          <table id="billing-table">
+            <!-- <tr>
+              <th></th>
+            </tr> -->
+          </table>
+        </div>
+
+        <div class="total-amount">
+          <p>Total (per month)</p>
+          <p id="total-amount-value"></p>
+        </div>
+      </div>
+
+      <!-- Step 5 start -->
+
+      <!-- Thank you!
+
+    Thanks for confirming your subscription! We hope you have fun
+    using our platform. If you ever need support, please feel free
+    to email us at support@loremgaming.com.
+
+    Step 5 end -->
+
+      <div id="step-5">
+        <div id="thank-you-div">
+          <img src="assets/images/icon-thank-you.svg" />
+
+          <h1>Thank you!</h1>
+          <p class="thank-you">Thanks for confirming your subscription! We hope you have fun
+            using our platform. If you ever need support, please feel free
+            to email us at support@loremgaming.com.</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="button next" id="action-buttons">
+      <button class="plain-button" id="back-button" onclick="goBack()">Go Back</button>
+      <button onclick="onNextClick()" id="next-button">Next Step</button>
+    </div>
+  </article>
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+</body>
+
+</html>
